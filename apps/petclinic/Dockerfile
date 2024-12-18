@@ -16,3 +16,4 @@ EXPOSE 8080
 CMD java -jar target/spring-petclinic-*.jar
 
 # Test CI/CD workflow
+
