@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-ingress
+  namespace: petclinic
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  tls:
+  - hosts:
+      - rdk8s.local
+    secretName: rdk8s-tls
+  rules:
+  - host: rdk8s.local
+    http:
+      paths:
+      - path: /petclinic
+        pathType: Prefix
+        backend:
+          service:
+            name: petclinic
+            port:
+              number: 8080
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: dashy
+            port:
+              number: 80

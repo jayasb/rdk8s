@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rdk8s-cert
+  namespace: default
+spec:
+  secretName: rdk8s-tls
+  dnsNames:
+    - rdk8s.local
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
