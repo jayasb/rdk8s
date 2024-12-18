@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: docker.io/jayasb/petclinic:1
-        imagePullPolicy: Always
+        image: local/petclinic:1
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
         env:
